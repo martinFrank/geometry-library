@@ -3,7 +3,11 @@ package de.frank.martin.geolib;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeoLine {
+public final class GeoLine {
+	
+	public GeoLine() {
+		//final construtor
+	}
 
 	public static List<GeoPoint> getLine(GeoPoint start, GeoPoint target) {
 		ArrayList<GeoPoint> ret = new ArrayList<GeoPoint>();
