@@ -3,14 +3,33 @@ package de.frank.martin.geolib;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * this class provides a method to calculate a line from GeoPoint a to GeoPoint b 
+ * (bresenham algortihm)
+ * 
+ * @author martinFrank
+ *
+ */
 public final class GeoLine {
 	
-	public GeoLine() {
+	
+	/**
+	 * private Constructor - not required<br>
+	 * use getLine() instead 
+	 */
+	private GeoLine() {
 		//final construtor
 	}
 
+	/**
+	 * calculates a line from start to end - if start.equals(end) the line is the size of 1, otherwise it's longer
+	 * 
+	 * @param start 
+	 * @param target
+	 * @return the line as List
+	 */
 	public static List<GeoPoint> getLine(GeoPoint start, GeoPoint target) {
-		ArrayList<GeoPoint> ret = new ArrayList<GeoPoint>();
+		ArrayList<GeoPoint> ret = new ArrayList<>();
 		
 		int x0 =  start.x();
 		int y0 =  start.y();		
@@ -23,7 +42,8 @@ public final class GeoLine {
 		sx = x0<x1 ? 1 : -1;
 		int dy = -1*Math.abs(y1-y0);
 		sy = y0<y1 ? 1 : -1; 
-		int err = dx+dy, e2; /* error value e_xy */
+		int err = dx+dy;
+		int e2; /* error value e_xy */
 		 
 		for(;;){  /* loop */
 			ret.add( new GeoPoint(x0,y0) );
@@ -36,19 +56,30 @@ public final class GeoLine {
 		return ret;
 	}
 	
+	/**
+	 * distance between two points (length of line)
+	 * (length as double by pythagoras) 
+	 * @param p1
+	 * @param p2
+	 * @return length of line
+	 */
 	public static double distance(GeoPoint p1, GeoPoint p2){
-		int dx = p2.x()-p1.x();
-		int dy = p2.y()-p1.y();		
-		int cSqu = (dx*dx)+(dy*dy);		
-		double abs = Math.sqrt(cSqu);		
-		return abs;
+		return distance(p1.x(), p1.y(), p2.x(),p2.y());
 	}
 	
+	/**
+	 * distance between two points (length of line)
+	 * (length as double by pythagoras)
+	 * @param x1 x of point p1
+	 * @param y1 y of point p1
+	 * @param x2 x of point p2
+	 * @param y2 y of point p2
+	 * @return length of line
+	 */
 	public static int distance (int x1, int y1, int x2, int y2){
 		int dx = x2-x1;
 		int dy = y2-y1;		
 		int cSqu = (dx*dx)+(dy*dy);		
-		int abs = (int)(Math.sqrt(cSqu));		
-		return abs;
+		return (int)(Math.sqrt(cSqu));
 	}
 }

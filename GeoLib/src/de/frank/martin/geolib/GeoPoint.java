@@ -1,22 +1,51 @@
 package de.frank.martin.geolib;
 
+/**
+ * this class represents a simple Integer.2D-Point
+ * 
+ * @author martinFrank
+ *
+ */
 public final class GeoPoint {
 
+	/**
+	 * Ordinate
+	 */
 	private final int x;
+	
+	/**
+	 * Abszisse
+	 */
 	private final int y;
 	
+	/**
+	 * constructor with x/y
+	 * @param x x-cooridante
+	 * @param y y-coordinate
+	 */
 	public GeoPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 	
+	
+	/**
+	 * default construtor uses Origin (0/0) as x/y-coordinates
+	 */
 	public GeoPoint() {
 		this(0,0);
 	}
 	
+	/**
+	 * @return the x-value of this point
+	 */
 	public int x(){
 		return x;
 	}
+	
+	/**
+	 * @return the y-value of this point
+	 */
 	public int y(){
 		return y;
 	}
@@ -30,6 +59,9 @@ public final class GeoPoint {
 		return result;
 	}
 
+	/**
+	 * points are equal if x and y are equal
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,16 +73,12 @@ public final class GeoPoint {
 		GeoPoint other = (GeoPoint) obj;
 		if (x != other.x)
 			return false;
-		if (y != other.y)
-			return false;
-		return true;
+		return (y != other.y);
 	}
 
 	@Override
 	public String toString() {
 		return "GeoPoint [x=" + x + ", y=" + y + "]";
 	}
-	
-	
 	
 }

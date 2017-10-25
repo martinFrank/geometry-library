@@ -4,12 +4,34 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * this class provides a method to calculate a circle from center and a radius
+ * (bresenham algortihm)
+ * 
+ * @author martinFrank
+ *
+ */
 public class GeoCircle {
+	
+	/**
+	 * private Constructor - not required<br>
+	 * use getCircle() instead 
+	 */
+	private GeoCircle() {
+		
+	}
 	
 	//https://en.wikipedia.org/wiki/Midpoint_circle_algorithm
 	
+	/**
+	 * creates a circle by given center and radius
+	 * @param x0 center x
+	 * @param y0 center y
+	 * @param radius 
+	 * @return a list of points representing a circle (sorted clockwise)
+	 */
 	public static List<GeoPoint> getCircle(int x0, int y0, int radius){
-		List<GeoPoint> circle = new ArrayList<GeoPoint>();
+		List<GeoPoint> circle = new ArrayList<>();
 		
 		int x = 0;
 		int y = radius;
@@ -33,6 +55,16 @@ public class GeoCircle {
 		CirclePointComperator cc = new CirclePointComperator(x0, y0);
 		Collections.sort(circle, cc);
 		return circle;
+	}
+	
+	/**
+	 * creates a circle by given center and radius
+	 * @param center
+	 * @param radius 
+	 * @return a list of points representing a circle (sorted clockwise)
+	 */
+	public static List<GeoPoint> getCircle(GeoPoint center, int radius){
+		return getCircle(center.x(),center.y(),radius);
 	}
 
 }
