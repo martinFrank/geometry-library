@@ -1,7 +1,7 @@
 package de.frank.martin.geolib;
 
 /**
- * this class represents a simple Integer.2D-Point
+ * this class is a simple Integer.2D-Point
  * 
  * @author martinFrank
  *
@@ -9,19 +9,19 @@ package de.frank.martin.geolib;
 public final class GeoPoint {
 
 	/**
-	 * Ordinate
+	 * ordinate
 	 */
 	private final int x;
 	
 	/**
-	 * Abszisse
+	 * abscissa
 	 */
 	private final int y;
 	
 	/**
 	 * constructor with x/y
-	 * @param x x-cooridante
-	 * @param y y-coordinate
+	 * @param x ordinate
+	 * @param y abscissa
 	 */
 	public GeoPoint(int x, int y) {
 		this.x = x;
@@ -30,7 +30,7 @@ public final class GeoPoint {
 	
 	
 	/**
-	 * default construtor uses Origin (0/0) as x/y-coordinates
+	 * default constructor uses Origin (0/0) as x/y-coordinates
 	 */
 	public GeoPoint() {
 		this(0,0);

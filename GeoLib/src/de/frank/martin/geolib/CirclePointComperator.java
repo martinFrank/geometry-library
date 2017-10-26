@@ -3,7 +3,7 @@ package de.frank.martin.geolib;
 import java.util.Comparator;
 
 /**
- * Comperatore to sort List<GeoPoint> clockwise/counterclockwise
+ * Comparator to sort List<GeoPoint> clockwise (requires a center)
  * @author martinFrank
  *
  */
@@ -39,8 +39,7 @@ public class CirclePointComperator implements Comparator<GeoPoint>{
 	}
 	
 	@Override
-	public int compare(GeoPoint o1, GeoPoint o2) {
-		
+	public int compare(GeoPoint o1, GeoPoint o2) {		
 		GlPolarPoint p1 =  new GlPolarPoint(o1, center);
 		GlPolarPoint p2 =  new GlPolarPoint(o2, center);
 		return p1.compareTo(p2);

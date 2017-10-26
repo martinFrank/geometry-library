@@ -5,13 +5,12 @@ import java.util.List;
 
 /**
  * this class provides a method to calculate a line from GeoPoint a to GeoPoint b 
- * (bresenham algortihm)
+ * (bresenham algorithm)
  * 
  * @author martinFrank
  *
  */
-public final class GeoLine {
-	
+public final class GeoLine {	
 	
 	/**
 	 * private Constructor - not required<br>
@@ -22,15 +21,15 @@ public final class GeoLine {
 	}
 
 	/**
-	 * calculates a line from start to end - if start.equals(end) the line is the size of 1, otherwise it's longer
+	 * calculates a line from start to end - if start.equals(end) the line is the 
+	 * size of 1, otherwise it's longer.
 	 * 
-	 * @param start 
+	 * @param start
 	 * @param target
 	 * @return the line as List
-	 */
+	 */	
 	public static List<GeoPoint> getLine(GeoPoint start, GeoPoint target) {
-		ArrayList<GeoPoint> ret = new ArrayList<>();
-		
+		ArrayList<GeoPoint> ret = new ArrayList<>();		
 		int x0 =  start.x();
 		int y0 =  start.y();		
 		int x1 = target.x();
@@ -58,9 +57,9 @@ public final class GeoLine {
 	
 	/**
 	 * distance between two points (length of line)
-	 * (length as double by pythagoras) 
+	 * (length as double by pythagoras)
 	 * @param p1
-	 * @param p2
+	 * @param p2 
 	 * @return length of line
 	 */
 	public static double distance(GeoPoint p1, GeoPoint p2){
