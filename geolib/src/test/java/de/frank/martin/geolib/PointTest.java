@@ -1,24 +1,18 @@
 package de.frank.martin.geolib;
 
-//import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-//import org.junit.jupiter.api.Test;
-
 import de.frank.martin.geolib.GeoPoint;
 
-class PointTest {
+public class PointTest {
 
 	@Test
-	void test() {
+	public void test() {
 		GeoPoint origin = new GeoPoint();
-		GeoPoint origin2 = new GeoPoint(0,0);
-		
+		GeoPoint origin2 = new GeoPoint(0,0);		
 		assertTrue(origin.equals(origin2));
-				
-//		fail("Not yet implemented");
 	}
 
 }
