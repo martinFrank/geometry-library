@@ -10,4 +10,4 @@ the library provides the basic geometric classes
  + Circle 
  
  ### create jar file
- ´$>maven package´
+ `$>maven package`
