@@ -8,3 +8,6 @@ the library provides the basic geometric classes
  + Point
  + Line
  + Circle 
+ 
+ ### create jar file
+ ´$>maven package´
