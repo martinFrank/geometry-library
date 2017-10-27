@@ -3,9 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.frank.martin.geolib</groupId>
 	<artifactId>geolib</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>geolib</name>
-	<description>basic geometry functionallity </description>
 	<properties>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
@@ -18,4 +17,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<description>this project provides a minimal 2D geometry library. It is integer-based because it is intended for applications that work on a rastered geometry (like bitmaps).</description>
+	<organization>
+		<name>Martin Frank</name>
+	</organization>
 </project>
