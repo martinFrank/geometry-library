@@ -1,7 +1,11 @@
 package de.frank.martin.geolib;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+//import org.junit.jupiter.api.Test;
 
 import de.frank.martin.geolib.GeoPoint;
 
