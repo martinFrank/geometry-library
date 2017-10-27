@@ -73,7 +73,7 @@ public final class GeoPoint {
 		GeoPoint other = (GeoPoint) obj;
 		if (x != other.x)
 			return false;
-		return (y != other.y);
+		return (y == other.y);
 	}
 
 	@Override
