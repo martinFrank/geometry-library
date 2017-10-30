@@ -39,14 +39,14 @@ public final class GeoPoint {
 	/**
 	 * @return the x-value of this point
 	 */
-	public int x(){
+	public int getX(){
 		return x;
 	}
 	
 	/**
 	 * @return the y-value of this point
 	 */
-	public int y(){
+	public int getY(){
 		return y;
 	}
 
