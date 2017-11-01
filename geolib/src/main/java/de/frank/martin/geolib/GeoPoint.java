@@ -26,8 +26,7 @@ public final class GeoPoint {
 	public GeoPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
-	}
-	
+	}	
 	
 	/**
 	 * default constructor uses Origin (0/0) as x/y-coordinates
