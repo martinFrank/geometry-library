@@ -63,7 +63,7 @@ public class GeoCircle {
 	 * @return a list of points representing a circle (sorted clockwise)
 	 */
 	public static List<GeoPoint> getCircle(GeoPoint center, int radius) {
-		return getCircle(center.x(), center.y(), radius);
+		return getCircle(center.getX(), center.getY(), radius);
 	}
 
 }

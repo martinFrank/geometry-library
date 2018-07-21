@@ -55,8 +55,8 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 		private double tetha;
 		private double length;
 		public GlPolarPoint(GeoPoint point, GeoPoint center) {
-			int dx = point.x() - center.x();
-			int dy = point.y() - center.y();			
+			int dx = point.getX() - center.getX();
+			int dy = point.getY() - center.getY();			
 			tetha = Math.atan2(dy, dx);
 			length = GeoLine.distance(point, center);
 		}

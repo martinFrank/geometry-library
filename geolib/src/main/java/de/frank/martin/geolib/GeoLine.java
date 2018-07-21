@@ -30,10 +30,10 @@ public final class GeoLine {
 	 */	
 	public static List<GeoPoint> getLine(GeoPoint start, GeoPoint target) {
 		ArrayList<GeoPoint> ret = new ArrayList<>();		
-		int x0 =  start.x();
-		int y0 =  start.y();		
-		int x1 = target.x();
-		int y1 = target.y();		
+		int x0 =  start.getX();
+		int y0 =  start.getY();		
+		int x1 = target.getX();
+		int y1 = target.getY();		
 		int sx = 0;
 		int sy = 0;		
 		int dx =  Math.abs(x1-x0);
@@ -62,7 +62,7 @@ public final class GeoLine {
 	 * @return length of line
 	 */
 	public static double distance(GeoPoint from, GeoPoint to){
-		return distance(from.x(), from.y(), to.x(),to.y());
+		return distance(from.getX(), from.getY(), to.getX(),to.getY());
 	}
 	
 	/**
