@@ -1,4 +1,4 @@
-package de.frank.martin.geolib;
+package de.elite.games.geolib;
 
 /**
  * this class is a simple Integer.2D-Point

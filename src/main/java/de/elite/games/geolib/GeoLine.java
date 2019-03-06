@@ -1,4 +1,4 @@
-package de.frank.martin.geolib;
+package de.elite.games.geolib;
 
 import java.util.ArrayList;
 import java.util.List;
