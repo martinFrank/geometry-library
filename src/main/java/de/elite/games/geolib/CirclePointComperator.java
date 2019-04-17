@@ -44,17 +44,19 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 		GlPolarPoint p2 =  new GlPolarPoint(o2, center);
 		return p1.compareTo(p2);
 	}
-	
+
+    //visibleForTesting
 	/**
 	 * polar points represent a point with angle/distance<br>
 	 * they are equal to Cartesian points(x/y)
 	 * @author martinFrank
 	 *
 	 */
-	private class GlPolarPoint implements Comparable<GlPolarPoint>{
+    static class GlPolarPoint implements Comparable<GlPolarPoint> {
 		private double tetha;
 		private double length;
-		public GlPolarPoint(GeoPoint point, GeoPoint center) {
+
+        GlPolarPoint(GeoPoint point, GeoPoint center) {
 			int dx = point.getX() - center.getX();
 			int dy = point.getY() - center.getY();			
 			tetha = Math.atan2(dy, dx);
