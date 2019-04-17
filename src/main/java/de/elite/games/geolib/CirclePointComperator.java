@@ -52,7 +52,7 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 	 * @author martinFrank
 	 *
 	 */
-    static class GlPolarPoint implements Comparable<GlPolarPoint> {
+    class GlPolarPoint implements Comparable<GlPolarPoint> {
 		private double tetha;
 		private double length;
 
