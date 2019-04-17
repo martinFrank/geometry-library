@@ -75,8 +75,8 @@ public final class GeoLine {
 	 * @return length of line
 	 */
 	public static double distance (int fromx, int fromy, int tox, int toy){
-		double dx = tox-fromx;
-		double dy = toy-fromy;			
+        int dx = tox - fromx;
+        int dy = toy - fromy;
 		return Math.sqrt((dx*dx)+(dy*dy));
 	}
 }
