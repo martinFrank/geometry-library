@@ -35,25 +35,38 @@ public class GeoCircle {
 		int x = 0;
 		int y = radius;
 		int dp = 1 - radius;
+
+        addPoint(circle, new GeoPoint(x0, y0 + radius));
+        addPoint(circle, new GeoPoint(x0, y0 - radius));
+        addPoint(circle, new GeoPoint(x0 + radius, y0));
+        addPoint(circle, new GeoPoint(x0 - radius, y0));
+
 		do {
 			if (dp < 0) {
 				dp = dp + 2 * (++x) + 3;
 			} else {
 				dp = dp + 2 * (++x) - 2 * (--y) + 5;
 			}
-			circle.add(new GeoPoint(x0 + x, y0 + y)); // For the 8 octants
-			circle.add(new GeoPoint(x0 - x, y0 + y));
-			circle.add(new GeoPoint(x0 + x, y0 - y));
-			circle.add(new GeoPoint(x0 - x, y0 - y));
-			circle.add(new GeoPoint(x0 + y, y0 + x));
-			circle.add(new GeoPoint(x0 - y, y0 + x));
-			circle.add(new GeoPoint(x0 + y, y0 - x));
-			circle.add(new GeoPoint(x0 - y, y0 - x));
+
+            addPoint(circle, new GeoPoint(x0 + x, y0 + y)); // For the 8 octants
+            addPoint(circle, new GeoPoint(x0 - x, y0 + y));
+            addPoint(circle, new GeoPoint(x0 + x, y0 - y));
+            addPoint(circle, new GeoPoint(x0 - x, y0 - y));
+            addPoint(circle, new GeoPoint(x0 + y, y0 + x));
+            addPoint(circle, new GeoPoint(x0 - y, y0 + x));
+            addPoint(circle, new GeoPoint(x0 + y, y0 - x));
+            addPoint(circle, new GeoPoint(x0 - y, y0 - x));
 		} while (x < y);
 		CirclePointComperator cc = new CirclePointComperator(x0, y0);
 		Collections.sort(circle, cc);
 		return circle;
 	}
+
+    private static void addPoint(List<GeoPoint> circle, GeoPoint geoPoint) {
+        if (!circle.contains(geoPoint)) {
+            circle.add(geoPoint);
+        }
+    }
 
 	/**
 	 * creates a circle by given center and radius

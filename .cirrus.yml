@@ -3,3 +3,6 @@ container:
 
 build_task:
   build_script: mvn clean install
+
+compute_credits_task:
+  use_compute_credits: $CIRRUS_USER_COLLABORATOR == 'true'
