@@ -1,4 +1,4 @@
-package de.elite.games.geolib;
+package com.github.martinfrank.geolib;
 
 import java.util.Comparator;
 

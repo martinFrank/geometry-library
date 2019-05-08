@@ -1,15 +1,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.elite.games</groupId>
+    <groupId>com.github.martinfrank</groupId>
 	<artifactId>geolib</artifactId>
-    <version>0.0.5</version>
-	<name>geolib</name>
 
-    <description>this project provides a minimal 2D geometry library. It is integer-based because it is intended for applications that work on a rastered geometry (like bitmaps).</description>
+    <version>0.1.0</version>
+	<name>geolib</name>
+    <description>this project provides a minimal 2D geometry library. It is integer-based because it is intended for
+        applications that work on a rastered geometry (like bitmaps).
+    </description>
+    <url>https://github.com/martinFrank/geometry-library</url>
     <organization>
         <name>Martin Frank</name>
     </organization>
+
+    <developers>
+        <developer>
+            <name>Martin Frank</name>
+            <email>martin.frank.privat@gmail.com</email>
+            <organization>Martin Frank</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/github.com/martinFrank/geometry-library.git</connection>
+        <developerConnection>scm:git:ssh://github.com/martinFrank/geometry-library.git</developerConnection>
+        <url>https://github.com/martinFrank/geometry-library/tree/master</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+        </license>
+    </licenses>
 
 	<properties>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -17,8 +41,9 @@
 		<sonar.projectKey>martinFrank_geometry-library</sonar.projectKey>
 		<sonar.organization>martinfrank-github</sonar.organization>
 		<sonar.language>java</sonar.language>
+        <sonar.java.libraries>target</sonar.java.libraries>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.scm.provider>git</sonar.scm.provider>
-
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
@@ -32,7 +57,16 @@
 		</dependency>
 	</dependencies>
 
-
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 	<build>
 		<pluginManagement>
@@ -59,47 +93,19 @@
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>0.8.2</version>
-					<configuration>
-						<append>true</append>
-					</configuration>
-					<executions>
-						<execution>
-							<id>prepare-agent</id>
-							<goals>
-								<goal>prepare-agent</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>prepare-agent-integration</id>
-							<goals>
-								<goal>prepare-agent-integration</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>jacoco-site</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>report</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.5</version>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>3.0.1</version>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>2.6</version>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.6.1</version>
@@ -108,34 +114,101 @@
                         <target>1.7</target>
                     </configuration>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.12.4</version>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>3.0.2</version>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>2.7</version>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
+
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>1.7</source>
+                </configuration>
+            </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 </project>
