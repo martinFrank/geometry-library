@@ -67,7 +67,7 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 		public int compareTo(GlPolarPoint o) {
 			int d = Double.compare(tetha, o.tetha);
 			if(d == 0){
-				return Double.compare(length, o.length);
+                return Double.compare(o.length, length); //closer points come first
 			}else{
 				return d;
 			}
