@@ -23,9 +23,9 @@ public final class GeoLine {
 	/**
 	 * calculates a line from start to end - if start.equals(end) the line is the 
 	 * size of 1, otherwise it's longer.
-	 * 
-	 * @param start
-	 * @param target
+	 *
+     * @param start point (GeoPoint) start of the line
+     * @param target point (GeoPoint) of the end of the line
 	 * @return the line as List
 	 */	
 	public static List<GeoPoint> getLine(GeoPoint start, GeoPoint target) {
@@ -57,8 +57,8 @@ public final class GeoLine {
 	/**
 	 * distance between two points (length of line)
 	 * (length as double-precise by pythagoras algorithm)
-	 * @param from
-	 * @param to 
+     * @param from is the start point (GeoPoint)
+     * @param to is the destinty point (GeoPoint)
 	 * @return length of line
 	 */
 	public static double distance(GeoPoint from, GeoPoint to){
