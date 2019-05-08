@@ -7,21 +7,26 @@ public class CircleComperatorTest {
 
     @Test
     public void testComperator() {
-        GeoPoint p0 = new GeoPoint(0, 2);
         GeoPoint p1 = new GeoPoint(1, 1);
+        GeoPoint p2 = new GeoPoint(2, 2);
 
         CirclePointComperator cc = new CirclePointComperator();
-        Assert.assertEquals(1, cc.compare(p0, p1));
+        Assert.assertEquals(1, cc.compare(p1, p2));
     }
 
     @Test
     public void testPolarPoints() {
-        GeoPoint p0 = new GeoPoint(0, 2);
         GeoPoint p1 = new GeoPoint(1, 1);
+        GeoPoint p2 = new GeoPoint(2, 2);
         GeoPoint center = new GeoPoint();
-        CirclePointComperator.GlPolarPoint pp0 = new CirclePointComperator().new GlPolarPoint(p0, center);
         CirclePointComperator.GlPolarPoint pp1 = new CirclePointComperator().new GlPolarPoint(p1, center);
-        Assert.assertNotEquals(pp0, pp1);
-        Assert.assertNotEquals(pp0.hashCode(), pp1.hashCode());
+        CirclePointComperator.GlPolarPoint pp2 = new CirclePointComperator().new GlPolarPoint(p2, center);
+
+        Assert.assertNotEquals(pp1, pp2);
+        Assert.assertNotEquals(pp1, null);
+        Assert.assertNotEquals(pp1, "hello");
+        Assert.assertNotEquals(pp1.hashCode(), pp2.hashCode());
+        Assert.assertEquals(pp1, pp1);
+
     }
 }
