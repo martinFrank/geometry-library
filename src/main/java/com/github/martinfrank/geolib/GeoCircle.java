@@ -27,7 +27,7 @@ public class GeoCircle {
 	 * 
 	 * @param x0 - x of center
 	 * @param y0 - y of center
-	 * @param radius
+	 * @param radius of the circle
 	 * @return a list of points representing a circle (sorted clockwise)
 	 */
 	public static List<GeoPoint> getCircle(int x0, int y0, int radius) {
@@ -70,9 +70,9 @@ public class GeoCircle {
 
 	/**
 	 * creates a circle by given center and radius
-	 * 
-	 * @param center
-	 * @param radius
+	 *
+	 * @param center of the circle
+	 * @param radius of the circle
 	 * @return a list of points representing a circle (sorted clockwise)
 	 */
 	public static List<GeoPoint> getCircle(GeoPoint center, int radius) {

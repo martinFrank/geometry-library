@@ -16,7 +16,7 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 
 	/**
 	 * comparator with non-default center (default would have been 0/0)
-	 * @param center
+     * @param center center of the comperator
 	 */
     CirclePointComperator(GeoPoint center){
 		this.center = center;
@@ -24,8 +24,8 @@ class CirclePointComperator implements Comparator<GeoPoint>{
 	
 	/**
 	 * comparator with non-default center (default would have been 0/0)
-	 * @param cx
-	 * @param cy
+     * @param cx center x of the comperator
+     * @param cy center y of the comperator
 	 */
 	CirclePointComperator(int cx, int cy){
 		this(new GeoPoint(cx, cy) );
