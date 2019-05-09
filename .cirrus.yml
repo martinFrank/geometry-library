@@ -4,6 +4,6 @@ container:
 build_task:
   build_script: mvn clean compile test sonar:sonar
   on_failure:
-    mail_script: sendmail -s “Hello world” martin.frank.privat@googlemail.com
+    mail_script: mutt -s "Test Email" user@example.com < /dev/null
 
 
