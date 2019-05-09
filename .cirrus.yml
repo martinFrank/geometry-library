@@ -1,5 +1,6 @@
 container:
-  image: maven:latest
+  #image: maven:latest
+  image: openjdk:8-jdk
 
 build_task:
   build_script: mvn clean compile test sonar:sonar
