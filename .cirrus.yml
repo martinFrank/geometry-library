@@ -3,3 +3,7 @@ container:
 
 build_task:
   build_script: mvn clean compile test sonar:sonar
+  on_failure:
+    mail_scrip: mail -s “Hello world” martin.frank.privat@googlemail.com
+
+
