@@ -1,10 +1,9 @@
 container:
-  #image: maven:latest
-  image: openjdk:8-jdk
+  image: maven:latest
 
 build_task:
   build_script: mvn clean compile test sonar:sonar
   on_failure:
-    mail_script: mutt -s "Test Email" user@example.com < /dev/null
+    mail_script: sendmail -s "Test Email" user@example.com < /dev/null
 
 
